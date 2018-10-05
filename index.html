@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>City Finder</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+    <span style="font-family: 'OstrichL';"></span>
+    <div class="container" id="con1">
+        <div class="bubble" id="b0">
+            <h1 id="he0"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bubble" id="b1">
+            <h1 id="he1"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bubble" id="b2">
+            <h1 id="he2"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bubble" id="b3">
+            <h1 id="he3"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bubble" id="b4">
+            <h1 id="he4"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bubble" id="b5">
+            <h1 id="he5"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bubble" id="b6">
+            <h1 id="he6"></h1>
+        </div>
+    </div>
+    <h5 id="t0">.</h5>
+    <h5 id="t1">I</h5>
+    <h5 id="t2">n</h5>
+    <h5 id="t3">s</h5>
+    <h5 id="t4">p</h5>
+    <h5 id="t5">i</h5>
+    <h5 id="t6">r</h5>
+    <h5 id="t7">e</h5>
+
+    <h2 id="title">.inspire</h2>
+    <h3 id="sub">Home for inspring quotes</h3>
+    <h4 id="quote"></h4>
+    <a href="" target="_blank">
+        <!--<img id="pic" src="https://healthruwords.com/wp-content/uploads/2018/01/Healthruwords.com_-_Inspirational_Images_-_-Dissolving-Hatred-1024x1024.jpg">-->
+        <img id="pic" src="">
+    </a>
+    <script>
+        window.onload = function() {
+            if (!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
+            else {
+                setTimeout(function() {
+                    starting();
+                }, 500);
+            }
+        }
+        const api = "https://healthruwords.p.mashape.com/v1/quotes/?size=large&t=";
+        const autho = "X-Mashape-Key";
+        const key = "fW4pRKFkxdmshQiKRVxcBH4D5xxQp1kf7wHjsnwfn4NQNdzDT1";
+        var topics = ["Believe", "Motivational", "Compassion", "Peace", "Trust", "Happiness", "Positivity",
+            "Courage", "Wisdom", "Success", "Healing", "Kindness", "Gratitude", "Life", "Forgiveness", "Love", "Spiritual"
+        ];
+        var rand = Math.floor(Math.random() * 17);
+        var num = 0;
+        var time = 13000;
+
+        function starting() {
+            for (var i = 0; i < 8; i++) {
+                document.getElementById("t" + i).style.animation = "reveal 1s";
+                document.getElementById("t" + i).style.animationDelay = i / 10 + "s";
+                document.getElementById("t" + i).style.animationFillMode = "forwards";
+            }
+            setTimeout(function() {
+                for (var i = 0; i < 8; i++) {
+                    //document.getElementById("t" + i).style.opacity = 0;
+                    document.getElementById("t" + i).style.animation = "gone 0.5s";
+                    console.log(document.getElementById("t" + i).style.opacity);
+
+                }
+                setTimeout(function() {
+                    for (var i = 0; i < 8; i++) {
+                        document.getElementById("t" + i).remove();
+                    }
+                }, 800);
+
+                setTimeout(function() {
+                    document.getElementById("sub").style.opacity = 1;
+                }, 1600);
+                setTimeout(function() {
+
+                    document.getElementById("title").style.opacity = 1;
+                }, 800);
+                setTimeout(function() {
+                    for (var i = 0; i < 7; i++) {
+                        document.getElementById("he" + i).innerHTML = ".";
+                        document.getElementById("b" + i).style.lineHeight = parseInt(document.getElementById("b" + i).offsetWidth, 10) + "px";
+                        create(i);
+                    }
+                }, 2000);
+
+            }, 4000);
+
+        }
+
+        function create(int) {
+            console.log(int);
+            
+            //console.log(document.getElementById("h" + int).style.fontSize);
+            
+            //console.log(document.getElementById("h" + int).fontSize);
+            //console.log(int);
+            setTimeout(function() {
+                document.getElementById("he" + int).innerHTML = topics[(rand + num) % 17];
+                num++;
+            document.getElementById("b" + int).style.lineHeight = parseInt(document.getElementById("b" + int).offsetWidth, 10) + "px";
+                //document.getElementById("b" + int).style.opacity = 1;
+                document.getElementById("b" + int).style.animation = "bin 1s";
+                document.getElementById("he" + int).style.animation = "hein 1s";
+                document.getElementById("b" + int).style.animationFillMode = "forwards";
+                document.getElementById("he" + int).style.animationFillMode = "forwards";
+            }, 1000 * (int + 1));
+
+        }
+
+        function update(int) {
+
+            setTimeout(function() {
+                //document.getElementById("b" + int).style.opacity = 0;
+                document.getElementById("b" + int).style.animation = "bout 0.5s";
+                document.getElementById("he" + int).style.animation = "heout 0.5s";
+                document.getElementById("b" + int).style.animationFillMode = "forwards";
+                document.getElementById("he" + int).style.animationFillMode = "forwards";
+                setTimeout(function() {
+                    document.getElementById("he" + int).innerHTML = ".";
+                    document.getElementById("b" + int).style.lineHeight = parseInt(document.getElementById("b" + int).offsetWidth, 10) + "px";
+                }, 1000);
+                setTimeout(function() {
+                    //clearTimeout();
+
+                    document.getElementById("b" + int).style.animation = "bin 1s";
+                    document.getElementById("he" + int).style.animation = "hein 1s";
+                    document.getElementById("b" + int).style.animationFillMode = "forwards";
+                    document.getElementById("he" + int).style.animationFillMode = "forwards";
+
+                    //console.log(int);
+                    document.getElementById("he" + int).innerHTML = topics[(rand + num) % 17];
+                    //document.getElementById("b" + int).style.height = parseInt(document.getElementById("b" + int).offsetWidth, 10) + "px";
+                    document.getElementById("b" + int).style.lineHeight = parseInt(document.getElementById("b" + int).offsetWidth, 10) + "px";
+                    //console.log(document.getElementById("h" + int).style.fontSize);
+                    num++;
+                    //document.getElementById("b" + int).style.opacity = 1;
+                }, 2000);
+            }, 4000 * (int + 1));
+
+        }
+
+        loadquote = (int) => {
+            document.getElementById("title").style.opacity = 0;
+            document.getElementById("sub").style.opacity = 0;
+            document.getElementById("quote").style.opacity = 0;
+            document.getElementById("pic").style.opacity = 0;
+            document.getElementById("pic").style.opacity = 0;
+
+            var tempapi = api + document.getElementById("he" + int).innerHTML;
+            $.ajax({
+                type: "GET",
+                url: api,
+                data: {},
+                dataType: 'json',
+                success: (data => {
+                    $("h4").html(data['0']['title']);
+                    $("#pic").attr("src", data['0']['media']);
+                    document.getElementById("pic").onload = function() {
+                        document.getElementById("quote").style.opacity = 1;
+                        document.getElementById("pic").style.opacity = 1;
+                    }
+                    console.log(data['0']['media']);
+                    $("a").attr("href", data['0']['media']);
+                    console.log(data['0']['url']);
+                }),
+                error: (err => { alert("Internet Disconnected!"); }),
+                beforeSend: (xhr => {
+                    xhr.setRequestHeader(autho, key);
+                })
+            });
+        };
+
+        setInterval(function() {
+            for (var i = 0; i < 7; i++) {
+                //console.log("for loop " + i);
+                update(i);
+            }
+            time = 28000;
+        }, time);
+        $("#b0").on("click", () => {
+            loadquote("0");
+        })
+        $("#b1").on("click", () => {
+            loadquote("1");
+        })
+        $("#b2").on("click", () => {
+            loadquote("2");
+        })
+        $("#b3").on("click", () => {
+            loadquote("3");
+        })
+        $("#b4").on("click", () => {
+            loadquote("4");
+        })
+        $("#b5").on("click", () => {
+            loadquote("5");
+        })
+        $("#b6").on("click", () => {
+            loadquote("6");
+        })
+    </script>
+</body>
+
+</html>

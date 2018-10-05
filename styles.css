@@ -1,0 +1,251 @@
+@font-face {
+    font-family: OstrichM;
+    src: url("fonts/OstrichSans-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: OstrichL;
+    src: url("fonts/OstrichSans-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: OstrichI;
+    src: url("fonts/OstrichSansInline-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: OstrichB;
+    src: url("fonts/OstrichSans-Bold.otf") format("opentype");
+}
+
+body {
+    background-color: #FFD2E3;
+}
+html, body {margin: 0; height: 100%; overflow-y: hidden}
+
+img {
+    max-height:25vw;
+    max-width:25vw;
+    position:absolute;
+    top:12vw;
+    left:6vw;
+    border-radius:2vw;
+    border: solid 8px #FFF;
+    box-shadow: 2px 2px 5px #ae5a66;
+    transition:0.3s;
+    opacity:0;
+}
+
+img:hover {
+    border:solid 0px #FFF;
+    box-shadow: 4px 4px 12px #ae5a66;
+}
+.bubble {
+    position: relative;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    padding-left: 1em;
+    padding-right: 1em;
+    transition:0.3s;
+    opacity:0;
+    
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+}
+
+
+@keyframes bin {
+    0%   {opacity: 0;}
+    30% {opacity:0}
+    35% {opacity:1;}
+    100% {opacity:1;}
+}
+
+@keyframes hein {
+    0%   {opacity: 0;}
+    30% {opacity:0}
+    35% {opacity:0;font-size:0.1vw;}
+    40%{opacity:1;}
+    92% {font-size:2.7vw}
+    95% {font-size:2.6vw;}
+    98%{font-size:2.5vw}
+    100% {opacity:1;}
+}
+
+@keyframes bout {
+    0%   {opacity: 1;}
+    58% {opacity:0}
+    100% {opacity:0;}
+}
+@keyframes heout {
+    0%   {opacity: 1;}
+    100% {opacity:0;}
+}
+
+#b0 {
+    left: 48vw;
+    top: 11vw;
+    background: #81ef6c;
+    opacity:0;
+}
+
+#b1 {
+    left: 58vw;
+    top: 5vw;
+    background: #548ae4;
+}
+
+#b2 {
+    left: 72vw;
+    top: 7vw;
+    background: #e76f9d;
+}
+
+#b3 {
+    left: 55vw;
+    top: 24vw;
+    background: #b38bea;
+}
+
+
+#b4 {
+    left: 65vw;
+    top: 16vw;
+    background: #ffb956;
+}
+
+#b5 {
+    left: 77vw;
+    top: 19vw;
+    background: #97bfe4;
+}
+
+#b6 {
+    left: 67vw;
+    top: 29vw;
+    background: #f27cd2;
+}
+
+
+
+h1 {
+    
+    font-size: 2.5vw;
+    font-family: OstrichL;
+    animation-fill-mode: forwards;
+    transition:0.8s;
+    cursor: pointer;
+}
+
+h1:hover {
+    font-size:2.8vw;
+}
+h1:active {
+    font-size:3vw;
+}
+
+h2 {
+    position:absolute;
+    left:4vw;
+    font-family: OstrichB;
+    font-size: 12vw;
+    color:white;
+    text-shadow: 1px 1px 4px #ae5a66;
+    opacity:0;
+    transition:0.3s;
+    cursor: context-menu;
+    
+}
+h3 {
+    position:absolute;
+    top:20vw;
+    left:4vw;
+    font-family: OstrichM;
+    font-size: 4vw;
+    color:white;
+    text-shadow: 1px 1px 4px #c67d87;
+    opacity:0;
+    transition:0.3s;
+    cursor: context-menu;
+}
+h4 {
+    position:absolute;
+    top:1vw;
+    left:6.5vw;
+    font-family: OstrichM;
+    font-size: 4vw;
+    color:white;
+    text-shadow: 1px 1px 4px #c67d87;
+    cursor: context-menu;
+}
+
+h5 {
+    position:absolute;
+    font-family: OstrichB;
+    font-size: 20vw;
+    color:white;
+    text-shadow: 1px 1px 4px #ae5a66;
+    top:-50vh;
+    left:22vw;
+    opacity:0;
+    transition:0.3s;
+    cursor: context-menu;
+}
+
+#t0 {
+    position:absolute;
+    left:22vw;
+}
+#t1 {
+    position:absolute;
+    left:25.7vw;
+}
+#t2 {
+    position:absolute;
+    left:29.7vw;
+}
+#t3 {
+    position:absolute;
+    left:38.2vw;
+}
+#t4 {
+    position:absolute;
+    left:46.2vw;
+}
+#t5 {
+    position:absolute;
+    left:53.9vw;
+}
+#t6 {
+    position:absolute;
+    left:58vw;
+}
+#t7 {
+    position:absolute;
+    left:66.2vw;
+}
+
+@keyframes reveal {
+    0%  {opacity: 0;}
+    25%{top:0vh;}
+    30% {opacity:0}
+    
+    100% {opacity:1;}
+}
+@keyframes gone {
+    0%  {opacity: 1;}
+    
+    100% {opacity:0;}
+}
+
+.container {
+    position: absolute;
+
+}
+
+
+::-webkit-scrollbar { 
+    display: none; 
+}
