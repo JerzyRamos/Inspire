@@ -74,7 +74,7 @@
                 }, 500);
             }
         }
-        const api = "https://healthruwords.p.mashape.com/v1/quotes/?size=large&t=";
+        const api = "https://healthruwords.p.rapidapi.com/v1/quotes/?size=large&t=";
         const autho = "X-Mashape-Key";
         const key = "fW4pRKFkxdmshQiKRVxcBH4D5xxQp1kf7wHjsnwfn4NQNdzDT1";
         var topics = ["Believe", "Motivational", "Compassion", "Peace", "Trust", "Happiness", "Positivity",
@@ -184,8 +184,12 @@
             var tempapi = api + document.getElementById("he" + int).innerHTML;
             $.ajax({
                 type: "GET",
-                url: api,
-                data: {},
+                url: tempapi,
+                corssDomain: true,
+                headers: {
+                    "x-rapidapi-host": "healthruwords.p.rapidapi.com",
+		            "x-rapidapi-key": "b6f913e234msh2c9262c97d659d4p1f242ajsnbfbe0c42d68a"
+                },
                 dataType: 'json',
                 success: (data => {
                     $("h4").html(data['0']['title']);
@@ -198,11 +202,11 @@
                     $("a").attr("href", data['0']['media']);
                     console.log(data['0']['url']);
                 }),
-                error: (err => { alert("Internet Disconnected!"); }),
-                beforeSend: (xhr => {
-                    xhr.setRequestHeader(autho, key);
-                })
+                error: (err => { alert("API retrieval error"); }),
+      
             });
+
+            
         };
 
         setInterval(function() {
